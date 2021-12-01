@@ -19,25 +19,7 @@ const generateTeam = team => {
     </div>
         `;
     };
-
-       // create the html for employees
-       const generateEmployee = employee => {
-        return `
-        <div class="card employee-card">
-    <div class="card-header">
-        <h2 class="card-title">${employee.getName()}</h2>
-        <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${employee.getRole()}</h3>
-    </div>
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: ${employee.getId()}</li>
-            <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank" rel="noopener noreferrer">${employee.getGithub()}</a></li>
-        </ul>
-    </div>
-</div>
-        `;
-    };    
+  
     // create the html for engineers
     const generateEngineer = engineer => {
         return `
@@ -81,11 +63,6 @@ const generateTeam = team => {
     html.push(team
         .filter(employee => employee.getRole() === "Manager")
         .map(manager => generateManager(manager))
-    );
-    html.push(team
-        .filter(employee => employee.getRole() === "Employee")
-        .map(employee => generateIntern(employee))
-        .join("")
     );
     html.push(team
         .filter(employee => employee.getRole() === "Engineer")
